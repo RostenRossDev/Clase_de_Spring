@@ -10,15 +10,20 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@Service
 public class UserDetailServiceImpl implements UserDetailService {
+
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional(readOnly = true)
     @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException {
         UserApi usuario = userRepository.findByUsername(username);
@@ -40,6 +45,13 @@ public class UserDetailServiceImpl implements UserDetailService {
             throw new UsernameNotFoundException("Error de login: usuario " + username + "No tiene roles asignados");
         }
 
-        return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnable(), true, true, true, authorities);
+        return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, authorities);
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public UserApi findUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username);
+    }
+
 }

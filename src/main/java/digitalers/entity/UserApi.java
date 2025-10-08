@@ -2,11 +2,8 @@ package digitalers.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -26,7 +23,7 @@ public class UserApi implements Serializable {
     @Column(length = 60)
     private String password;
 
-    private Boolean enable;
+    private Boolean enabled;
 
     private String email;
 
@@ -35,4 +32,5 @@ public class UserApi implements Serializable {
     @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "USER_ID")
     private List<Role> roles;
+
 }

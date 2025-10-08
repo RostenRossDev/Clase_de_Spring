@@ -4,8 +4,8 @@ INSERT INTO PERSONAS (NOMBRE, EDAD, DIRECCION_ID, TELEFONO, EMAIL) VALUES ('nest
 
 
 
-INSERT INTO users (username, password, enabled) VALUES ('user', '$2a$10$p7LHk/KItqUEAyK2VksvzeOMeZWi7TXbA7uta3bMOz89uzlNeSe3q', 1)
-INSERT INTO users (username, password, enabled)  VALUES ('ADMIN', '$2a$10$p7LHk/KItqUEAyK2VksvzeOMeZWi7TXbA7uta3bMOz89uzlNeSe3q', 1)
+INSERT INTO users (username, password, enabled, email) VALUES ('user', '$2a$10$p7LHk/KItqUEAyK2VksvzeOMeZWi7TXbA7uta3bMOz89uzlNeSe3q', 1, 'user@user.com')
+INSERT INTO users (username, password, enabled, email)  VALUES ('admin', '$2a$10$p7LHk/KItqUEAyK2VksvzeOMeZWi7TXbA7uta3bMOz89uzlNeSe3q', 1, 'admin@admin.com')
 
 INSERT INTO authorities (user_id, authority) VALUES (1, 'ROLE_USER')
 
