@@ -4,6 +4,7 @@ import digitalers.auth.JwtUtil;
 import digitalers.dto.Credential;
 import digitalers.entity.UserApi;
 import digitalers.service.UserDetailService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+@Tag(name = "AuthController", description = "Controlador para el login de usuario")
 @RestController
 @RequestMapping("/login")
 public class AuthController {

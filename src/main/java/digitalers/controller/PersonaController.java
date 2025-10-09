@@ -3,6 +3,7 @@ package digitalers.controller;
 import digitalers.dto.PersonaDto;
 import digitalers.entity.Persona;
 import digitalers.service.PersonaServicio;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Personas", description = "CRUD completo de personas")
 @RequestMapping("/personas")
 @RestController
 public class PersonaController {
