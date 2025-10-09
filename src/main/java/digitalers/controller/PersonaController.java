@@ -18,6 +18,7 @@ public class PersonaController {
     @Autowired
     PersonaServicio personaServicio;
 
+
     @GetMapping
     public ResponseEntity<?> getPersonas(){
         return personaServicio.todasLasPersonas();
